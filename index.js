@@ -180,6 +180,15 @@ async function run() {
             res.json(result);
         })
 
+        // DELETE PRODUCT (DELETE PRODUCT)
+        app.delete('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            query = { _id: ObjectId(id) };
+            const result = await orderCollection.deleteOne(query);
+            console.log('Delete request generated from client side for id:', id);
+            res.json(result);
+        })
+
 
         //  PUT API (UPDATE DATA FROM CLIENT)
         app.put('/orders/:id', async (req, res) => {
