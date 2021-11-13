@@ -184,7 +184,7 @@ async function run() {
         app.delete('/products/:id', async (req, res) => {
             const id = req.params.id;
             query = { _id: ObjectId(id) };
-            const result = await orderCollection.deleteOne(query);
+            const result = await productCollection.deleteOne(query);
             console.log('Delete request generated from client side for id:', id);
             res.json(result);
         })
